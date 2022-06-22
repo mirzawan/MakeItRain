@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button makeItRain;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showInfo(View view) {
-        Toast.makeText(MainActivity.this, R.string.app_info,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(MainActivity.this, R.string.app_info,Toast.LENGTH_LONG).show();
+        Snackbar.make(moneyValue,R.string.app_info,Snackbar.LENGTH_LONG).show();
     }
 }
