@@ -1,6 +1,9 @@
 package com.mirzahadzic.makeitrain;
 
+import static android.view.View.INVISIBLE;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.icu.text.NumberFormat;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
 
     public void showMoney(View view) {
@@ -44,9 +48,15 @@ public class MainActivity extends AppCompatActivity {
 
         moneyCounter+=1000;
         moneyValue.setText(String.valueOf(numberFormat.format(moneyCounter)));
+
+
         //Challenge: kad nabijes 20k promijeni boju i ispisi poruku!!
         if(moneyCounter>=20000){
-            moneyValue.setTextColor(Color.RED);
+
+            //dodavanje custom boje definisane u res/values/colors.xml
+            moneyValue.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.custom_red));
+
+
             treshold.setText("You made it to 20K!!!");
         }
     }
