@@ -31,32 +31,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         makeItRain = findViewById(R.id.btnMakeItRain);
         moneyValue=findViewById(R.id.moneyValue);
         treshold = findViewById(R.id.treshold);
-
-
-
-
-
-
     }
 
     public void showMoney(View view) {
         NumberFormat numberFormat= NumberFormat.getCurrencyInstance();
-
         moneyCounter+=1000;
         moneyValue.setText(String.valueOf(numberFormat.format(moneyCounter)));
-
 
         //Challenge: kad nabijes 20k promijeni boju i ispisi poruku!!
         if(moneyCounter>=20000){
 
             //dodavanje custom boje definisane u res/values/colors.xml
             moneyValue.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.custom_red));
-
-
             treshold.setText("You made it to 20K!!!");
         }
     }
