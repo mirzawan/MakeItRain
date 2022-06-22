@@ -2,6 +2,7 @@ package com.mirzahadzic.makeitrain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.icu.text.NumberFormat;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +13,13 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button makeItRain;
     private TextView moneyValue;
+    private TextView treshold;
     private Button showInfo;
     private int moneyCounter = 0;
 
@@ -27,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         makeItRain = findViewById(R.id.btnMakeItRain);
         moneyValue=findViewById(R.id.moneyValue);
+        treshold = findViewById(R.id.treshold);
+
 
 
 
@@ -38,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         moneyCounter+=1000;
         moneyValue.setText(String.valueOf(numberFormat.format(moneyCounter)));
-       // Log.d("MainActivity", "Make it rain! " + moneyCounter);
+        //Challenge: kad nabijes 20k promijeni boju i ispisi poruku!!
+        if(moneyCounter>=20000){
+            moneyValue.setTextColor(Color.RED);
+            treshold.setText("You made it to 20K!!!");
+        }
     }
 
     public void showInfo(View view) {
